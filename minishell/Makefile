@@ -19,7 +19,7 @@ ifeq ($(origin CC), envirnoment override)
 CC = cc
 endif
 
-FLAGS_WWW = -Wall -Wextra -Werror
+FLAGS_WWW = -Wall -Wextra
 FLAGS_OPTIM = -O3
 FLAGS_LIBS = -lreadline
 override CFLAGS += $(FLAGS_LIBS) $(FLAGS_OPTIM) $(FLAGS_WWW)
