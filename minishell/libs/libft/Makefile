@@ -63,7 +63,7 @@ ifeq ($(origin CC), envirnoment override)
 CC = cc
 endif
 
-CC_WWW_FLAGS = -Wall -Wextra -Werror
+CC_WWW_FLAGS = -Wall -Wextra
 CC_FLAGS = -g
 INCLD_FLAGS = -I$(INCLD_PATH)
 

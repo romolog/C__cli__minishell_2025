@@ -19,8 +19,8 @@ ifeq ($(origin CC), envirnoment override)
 CC = cc
 endif
 
-FLAGS_WWW = -Wall -Wextra
-FLAGS_OPTIM = -O3
+FLAGS_WWW = -Wall -Wextra -g
+FLAGS_OPTIM = -O0
 FLAGS_LIBS = -lreadline
 override CFLAGS += $(FLAGS_LIBS) $(FLAGS_OPTIM) $(FLAGS_WWW)
 
@@ -113,7 +113,7 @@ $(START):	$(SRCS) $(HDRS) Makefile
 	@printf "\n\t\t\033[33m  MINISHELL:\tcompiling...\033[0m\n\n"
 
 $(OBJS):	%.o:	%.c	
-	@$(CC) $(FLAGS_WWW) $(FLAGS_OPTIM) -c $< $(INCLUDES) -o $@ && printf "\033[33m  compiling, assembling OBJ:\t$(basename $(notdir $@))\033[0m\n"
+	@$(CC) $(CFLAGS) $(FLAGS_WWW) $(FLAGS_OPTIM) -c $< $(INCLUDES) -o $@ && printf "\033[33m  compiling, assembling OBJ:\t$(basename $(notdir $@))\033[0m\n"
 	@touch $(START)
 
 $(LIB_LIBFT):
@@ -122,7 +122,7 @@ $(LIB_LIBFT):
 
 $(NAME):	$(START) $(LIB_LIBFT) $(OBJS) $(HDRS) Makefile
 	@touch $(START)
-	@$(CC) $(CFLAGS) $(OBJS) $(LIB_LIBFT) $(HEADERS) -o $(NAME) && printf "\n\033[33m\tlinking EXECUTABLE:\t$(notdir $@)\033[0m\n\n"
+	@$(CC) $(OBJS) $(CFLAGS) $(LIB_LIBFT) $(HEADERS) -o $(NAME) && printf "\n\033[33m\tlinking EXECUTABLE:\t$(notdir $@)\033[0m\n\n"
 	@printf "\t\t\033[32mMINISHELL:\tcompiled\033[0m\n\n\n"
 
 .PHONY:	clean

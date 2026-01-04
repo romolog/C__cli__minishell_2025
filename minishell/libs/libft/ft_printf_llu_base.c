@@ -65,7 +65,7 @@ void	ft_print_llu_base(t_llu num, int base, t_s_printfmt *p, int len)
 	if (num > (t_llu)(base - 1))
 	{
 		ft_print_llu_base(num / base, base, p, len);
-		if (p->cnv == 'X' && (num % base) >= 0)
+		if (p->cnv == 'X')
 			write(1, radix_up + (num % base), 1);
 		else
 			write(1, radix_low + (num % base), 1);

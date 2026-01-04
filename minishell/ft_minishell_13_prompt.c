@@ -83,7 +83,7 @@ void	ft_set_tracker_prompt(t_tr *t)
 {
 	char	*label;
 
-	label = "\033[0;36mMINISHELL R&I \033[1;96m";
+	label = "\033[0;36mMINISHELL \033[1;96m";
 	ft_add_str_malloc(&t->f_prompt, label, ft_strlen(label), t);
 	ft_get_user(t);
 	ft_get_hostname(t);
